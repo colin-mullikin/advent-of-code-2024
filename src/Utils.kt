@@ -8,6 +8,11 @@ import kotlin.io.path.readText
  */
 fun readInput(name: String) = Path("resources/$name.txt").readText().trim().lines()
 
+fun readInputToMatrix(name: String): Array<CharArray> {
+    val lines = Path("resources/$name.txt").readText().trim().lines()
+    return Array(lines.size) { i -> lines[i].toCharArray() }
+}
+
 /**
  * Converts string to md5 hash.
  */
