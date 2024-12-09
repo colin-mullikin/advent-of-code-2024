@@ -8,7 +8,7 @@ fun main() {
             var column = 0
             while (column < input[row].size) {
                 if (input[row][column] == 'X') {
-                    result += Day04Utils.searchForXmas(input, row, column)
+                    result += Day04Utils.searchForXmasPart1(input, row, column)
                 }
                 column++
             }
@@ -19,7 +19,21 @@ fun main() {
     }
 
     fun part2(input: Array<CharArray>): Int {
-        return 0
+        var result = 0
+
+        var row = 1
+        while (row < input.lastIndex) {
+            var column = 1
+            while (column < input[row].lastIndex) {
+                if (input[row][column] == 'A' && Day04Utils.searchForXmasPart2(input, row, column)) {
+                    result += 1
+                }
+                column++
+            }
+            row++
+        }
+
+        return result
     }
 
     val testInputArray = readInputToMatrix("Day04_test")
